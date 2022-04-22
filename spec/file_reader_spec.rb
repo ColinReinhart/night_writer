@@ -1,5 +1,6 @@
+require 'rspec'
 require 'simplecov'
-require './lib/file_reader'
+require './lib/file_writer'
 
 RSpec.describe FileWriter do
   before :each do

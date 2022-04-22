@@ -1,15 +1,13 @@
 require 'simplecov'
 require './lib/file_reader'
 
-RSpec.describe FileReader do
+RSpec.describe FileWriter do
   before :each do
-    @file_reader = FileReader.new
+    @file_writer = FileWriter.new
   end
 
   it "exists" do
-    expect(@file_reader).to be_a(FileReader)
-  end
-
+    expect(@file_writer).to be_a(FileWriter)
   end
 
 end

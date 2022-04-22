@@ -8,7 +8,7 @@ class FileWriter
   end
 
   def message
-    p "Created 'braille.txt' containing 256 characters"
+    p "Created '#{@out}' containing #{@in.length} characters"
   end
 
 end

@@ -11,4 +11,9 @@ RSpec.describe FileWriter do
     expect(@file_writer).to be_a(FileWriter)
   end
 
+  it "has attributes" do
+    allow(@file_writer).to receive(:in).and return('message.txt')
+    expect(@file_writer.in).to eq('message.txt')
+  end
+
 end

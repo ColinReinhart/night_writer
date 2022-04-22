@@ -18,4 +18,9 @@ RSpec.describe FileWriter do
     expect(@file_writer.out).to eq('braille.txt')
   end
 
+  it "prints to command line" do
+    allow(@file_writer).to receive(:message).and_return("Created 'braille.txt' containing 256 characters")
+    expect(@file_writer.message).to eq("Created 'braille.txt' containing 256 characters")
+  end
+
 end

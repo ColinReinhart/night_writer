@@ -23,4 +23,8 @@ RSpec.describe FileWriter do
     expect(@file_writer.message).to eq("Created 'braille.txt' containing 256 characters")
   end
 
+  it "can translate to braille" do
+    expect(@file_writer.translate).to eq('a' => ['O.', '..', '..'])
+  end
+
 end

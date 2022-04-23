@@ -40,4 +40,5 @@ describe Dictionary do
     }
     expect(@dictionary.to_braille).to eq(expected)
   end
+
 end

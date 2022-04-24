@@ -1,4 +1,5 @@
 require './lib/file_writer'
 
 file_writer = FileWriter.new
-file_writer.message
+p file_writer.message
+file_writer.create_file

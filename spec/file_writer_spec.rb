@@ -1,5 +1,6 @@
 require 'rspec'
 require 'simplecov'
+SimpleCov.start
 require './lib/file_writer'
 
 RSpec.describe FileWriter do
@@ -12,10 +13,10 @@ RSpec.describe FileWriter do
   end
 
   it "has attributes" do
-    allow(@file_writer).to receive(:in).and_return('message.txt')
-    allow(@file_writer).to receive(:out).and_return('braille.txt')
-    expect(@file_writer.in).to eq('message.txt')
-    expect(@file_writer.out).to eq('braille.txt')
+    allow(@file_writer).to receive(:input).and_return('message.txt')
+    allow(@file_writer).to receive(:output).and_return('braille.txt')
+    expect(@file_writer.input).to eq('message.txt')
+    expect(@file_writer.output).to eq('braille.txt')
   end
 
   it "prints to command line" do
@@ -23,8 +24,12 @@ RSpec.describe FileWriter do
     expect(@file_writer.message).to eq("Created 'braille.txt' containing 256 characters")
   end
 
-  it "can translate to braille" do
-    expect(@file_writer.translate).to eq('a' => ['O.', '..', '..'])
+  xit "can translate to braille" do
+    expect(@file_writer.translate).to eq(['O.', '..', '..'])
+  end
+
+  it "can parse txt file" do
+
   end
 
 end

@@ -24,12 +24,10 @@ RSpec.describe FileWriter do
     expect(@file_writer.message).to eq("Created 'braille.txt' containing 256 characters")
   end
 
-  xit "can translate to braille" do
-    expect(@file_writer.translate).to eq(['O.', '..', '..'])
-  end
-
-  it "can parse txt file" do
-
+  it "can create new file with text in it" do
+    @file_writer.create_file
+    require "pry"; binding.pry
+    expect(@file_writer.read_input).to eq('a')
   end
 
 end

@@ -1,13 +1,8 @@
-class Dictionary
-  attr_reader :to_braille
-
-  def initialize
-    @to_braille = to_braille
-  end
+module Dictionary
 
   def to_braille
     {
-      " " => ['..', '..', '..']
+      ' ' => ['..', '..', '..'],
       'a' => ['O.', '..', '..'],
       'b' => ['O.', 'O.', '..'],
       'c' => ['OO', '..', '..'],
@@ -33,7 +28,7 @@ class Dictionary
       'w' => ['.O', 'OO', '.O'],
       'x' => ['OO', '..', 'OO'],
       'y' => ['OO', '.O', 'OO'],
-      'z' => ['O.', '.O', 'OO'],
+      'z' => ['O.', '.O', 'OO']
     }
   end
 

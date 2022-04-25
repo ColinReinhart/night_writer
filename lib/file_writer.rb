@@ -1,4 +1,9 @@
+require './lib/dictionary'
+require './lib/translate'
+
 class FileWriter
+  include Dictionary
+  include Translate
   attr_reader :in,
               :out
 
@@ -12,7 +17,7 @@ class FileWriter
   end
 
   def read_input
-    File.read(@input)
+    File.read(@input).delete("\n")
   end
 
   def input_length
@@ -24,7 +29,6 @@ class FileWriter
   end
 
   def create_file
-    File.write(@output, read_input)
-    require "pry"; binding.pry
+    File.write(output_name, translate_to_braille)
   end
 end

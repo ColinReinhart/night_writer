@@ -38,6 +38,6 @@ class FileWriter
       translated.write("#{display[:row3]}\n")
     end
     translated.close
-
   end
+  
 end

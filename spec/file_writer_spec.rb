@@ -39,6 +39,7 @@ RSpec.describe FileWriter do
     new_file.close
 
     expected = "O.O.O.O.O.\nOO.OO.O..O\n....O.O.O.\nO.O.O.O.O.\nOO.OO.O..O\n....O.O.O.\nO.O.O.O.O.\nOO.OO.O..O\n....O.O.O.\n"
+    
     expect(test).to eq(expected)
   end
 

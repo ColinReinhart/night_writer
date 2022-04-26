@@ -32,6 +32,25 @@ RSpec.describe FileWriter do
   end
 
   it "can write a translated file" do
+    file_writer = FileWriter.new('test_message.txt', 'test_braille.txt')
+    file_writer.create_file
+    new_file = File.open("test_braille.txt")
+    test = new_file.read
+    new_file.close
 
+    expected = "O.O.O.O.O.\nOO.OO.O..O\n....O.O.O.\nO.O.O.O.O.\nOO.OO.O..O\n....O.O.O.\nO.O.O.O.O.\nOO.OO.O..O\n....O.O.O.\n"
+    expect(test).to eq(expected)
+  end
+
+  it "can write a translated file" do
+    file_writer = FileWriter.new('test_message_long.txt', 'test_braille_long.txt')
+    file_writer.create_file
+    new_file = File.open("test_braille_long.txt")
+    test = new_file.read
+    new_file.close
+    control_file = File.open("control_file.txt")
+    control = control_file.read
+    control_file.close
+    expect(test).to eq(control)
   end
 end

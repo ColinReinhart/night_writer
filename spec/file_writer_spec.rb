@@ -53,4 +53,5 @@ RSpec.describe FileWriter do
     control_file.close
     expect(test).to eq(control)
   end
+
 end

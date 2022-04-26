@@ -4,16 +4,16 @@ require './lib/translate'
 class FileWriter
   include Dictionary
   include Translate
-  attr_reader :in,
-              :out
+  attr_reader :input,
+              :output
 
-  def initialize
-    @input = ARGV[0]
-    @output = ARGV[1]
+  def initialize(argument1, argument2)
+    @input = argument1
+    @output = argument2
   end
 
   def message
-    "Created '#{output_name}' containing #{input_length} characters"
+    "Created '#{@output}' containing #{input_length} characters"
   end
 
   def read_input
@@ -24,11 +24,20 @@ class FileWriter
     read_input.length
   end
 
-  def output_name
-    @output
-  end
-
   def create_file
-    File.write(output_name, translate_to_braille)
+    translated = File.open(@output, "w")
+    display = braille_display
+    display.each do |element|
+      until display[:row3].length < 80
+        translated.write("#{display[:row1].slice!(0..79)}\n")
+        translated.write("#{display[:row2].slice!(0..79)}\n")
+        translated.write("#{display[:row3].slice!(0..79)}\n")
+      end
+      translated.write("#{display[:row1]}\n")
+      translated.write("#{display[:row2]}\n")
+      translated.write("#{display[:row3]}\n")
+    end
+    translated.close
+
   end
 end

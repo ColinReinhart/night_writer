@@ -1,11 +1,12 @@
-require 'rspec'
 require 'simplecov'
 SimpleCov.start
+
+require 'rspec'
 require './lib/file_writer'
 
 RSpec.describe FileWriter do
   before :each do
-    @file_writer = FileWriter.new
+    @file_writer = FileWriter.new("message.txt", "braille.txt")
   end
 
   it "exists" do
@@ -13,21 +14,24 @@ RSpec.describe FileWriter do
   end
 
   it "has attributes" do
-    allow(@file_writer).to receive(:input).and_return('message.txt')
-    allow(@file_writer).to receive(:output).and_return('braille.txt')
     expect(@file_writer.input).to eq('message.txt')
     expect(@file_writer.output).to eq('braille.txt')
   end
 
-  it "prints to command line" do
-    allow(@file_writer).to receive(:message).and_return("Created 'braille.txt' containing 256 characters")
-    expect(@file_writer.message).to eq("Created 'braille.txt' containing 256 characters")
+  it "message contains all needed info" do
+    expect(@file_writer.message).to eq("Created 'braille.txt' containing 446 characters")
   end
 
-  it "can create new file with text in it" do
-    @file_writer.create_file
-    require "pry"; binding.pry
-    expect(@file_writer.read_input).to eq('a')
+  it "can create read input file" do
+    expected = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    expect(@file_writer.read_input).to eq(expected)
   end
 
+  it "can tell input length" do
+    expect(@file_writer.input_length).to eq(446)
+  end
+
+  it "can write a translated file" do
+
+  end
 end

@@ -1,5 +1,6 @@
 require 'simplecov'
 SimpleCov.start
+
 require './lib/file_writer'
 require './lib/translate'
 

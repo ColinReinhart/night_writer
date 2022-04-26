@@ -6,7 +6,7 @@ describe Dictionary do
   end
 
   it "exists" do
-    expect(@dictionary).to be_a(Dictionary)
+    expect(@dictionary).to be_a(Module)
   end
 
   it "has dictionary hash" do

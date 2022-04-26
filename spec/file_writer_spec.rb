@@ -54,12 +54,4 @@ RSpec.describe FileWriter do
     expect(test).to eq(control)
   end
 
-  it "can translate from braille to english"
-  file_writer = FileWriter.new('test_from_braille.txt', 'test_to_flat.txt')
-  file_writer.create_file
-  new_file = File.open("test_to_flat.txt")
-  test = new_file.read
-  new_file.close
-
-  expect(test).to eq("hello")
 end
